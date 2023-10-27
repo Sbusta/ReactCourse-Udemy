@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas de NameApp debe de ser igual al snapshot 1`] = `
+<div>
+  <h1>
+    Sebastián Bustamante
+  </h1>
+  <p>
+    Software Developer
+  </p>
+  <h3>
+    Buen Título
+  </h3>
+  <h4>
+    2516
+  </h4>
+</div>
+`;

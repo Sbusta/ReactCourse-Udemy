@@ -1,0 +1,9 @@
+html, body{ 
+    /* background-color: #21232A; */
+    color: #21232A;
+    padding: 20px;
+}
+
+button{
+    margin-right: 10px;
+}
