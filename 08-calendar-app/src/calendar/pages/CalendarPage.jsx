@@ -1,24 +1,18 @@
 import { Calendar } from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
-import { addHours } from 'date-fns'
 
-import { NavBar, CalendarEvent, CalendarModal } from "../components"
+
+import { NavBar, CalendarEvent, CalendarModal, FabAddNew, FabDelete } from "../components"
 import { localizer } from '../../helpers'
 import { useState } from 'react'
+import { useCalendarStore, useUiStore } from '../../hooks'
 
-const events =[{
-  title: 'Task 01- Proyect Calendar',
-  ntoes: 'Finish the React.js Udemy Course',
-  start: new Date(),
-  end: addHours(new Date(), 2),
-  bgColor: '#fafafa',
-  user:{
-    _id: '187234',
-    name: 'Sepas'
-  }
-}]
 
 export const CalendarPage = () => {
+
+  const { openDateModal } = useUiStore();
+  const { events, setActiveEvent } = useCalendarStore();
+
 
   const [lastView, setLastView] = useState(localStorage.getItem('lastView') || 'week')
 
@@ -35,10 +29,10 @@ export const CalendarPage = () => {
   }
 
   const onDoubleClick = (event) => {
-
+    openDateModal();
   }
   const onSelect = (event) => {
-    
+    setActiveEvent(event);
   }
   const onViewChanged = (event) => {
     localStorage.setItem('lastView',event);
@@ -67,6 +61,8 @@ export const CalendarPage = () => {
         />
       </div>
           <CalendarModal />
+          <FabAddNew />
+          <FabDelete />
     </>
   )
 }
